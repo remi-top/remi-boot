@@ -1,0 +1,111 @@
+# Undertow容器配置
+server:
+  port: 8080
+  undertow:
+    threads:
+      # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个读线程和一个写线程
+      io: 4
+      # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
+      # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+      worker: 128
+    # 以下配置会影响buffer，这些buffer会用于服务器连接的IO操作，有点类似netty的池化内存管理。
+    # buffer-size：每块buffer的空间大小，越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
+    # buffers-per-region：每个区分配的buffer数量，所以pool的大小是buffer-size * buffers-per-region
+    # direct-buffers：是否分配的直接内存(NIO直接分配的堆外内存)
+    buffer-size: 1024
+    direct-buffers: true
+    # http post body 大小，默认为 -1B ，即不限制
+    max-http-post-size: -1B
+    # 是否在启动时创建 filter，默认为 true，不用修改
+    eager-filter-init: true
+    # 限制路径参数数量，默认为 1000
+    max-parameters: 1000
+    # 限制 http header 数量，默认为 200
+    max-headers: 200
+    # 限制 http header 中 cookies 的键值对数量，默认为 200
+    max-cookies: 200
+    # 是否允许 URL 解码，默认为 true，除了 %2F 其他的都会处理
+    decode-url: true
+    # url 字符编码集，默认是 utf-8
+    url-charset: utf-8
+    # 响应的 http header 是否会加上 'Connection: keep-alive'，默认为 true
+    always-set-keep-alive: true
+    # 请求超时，默认是不超时，我们的微服务因为可能有长时间的定时任务，所以不做服务端超时，都用客户端超时，所以我们保持这个默认配置
+    no-request-timeout: -1
+    # 是否在跳转的时候保持 path，默认是关闭的，一般不用配置
+    preserve-path-on-forward: false
+    options:
+      # spring boot 没有抽象的 xnio 相关配置在这里配置，对应 org.xnio.Options 类
+      socket:
+        SSL_ENABLED: false
+      # spring boot 没有抽象的 undertow 相关配置在这里配置，对应 io.undertow.UndertowOptions 类
+      server:
+        ALLOW_UNKNOWN_PROTOCOLS: false
+
+spring:
+  # 循环依赖的问题
+  main:
+    allow-circular-references: true
+  # MVC默认的路径匹配策略为PATH_PATTERN_PARSER，需要修改为ANT_PATH_MATCHER 解决swagger兼容性问题
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+# mybatis-plus
+mybatis-plus:
+  configuration:
+    #控制台打印完整带参数SQL语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #mapper映射文件路径
+  mapper-locations: classpath*:/*-infra/src/main/resources/mapper/*.xml, classpath*:/mapper/**.xml
+
+# springdoc
+springdoc:
+  group-configs:
+   - group: web
+     packages-to-scan: ai.remi.boot.web
+   - group: app
+     packages-to-scan: ai.remi.boot.app
+
+# 异步线程配置
+async:
+  executor:
+    thread:
+      # 核心线程数
+      corePoolSize: 10
+      # 最大线程数
+      maxPoolSize: 30
+      # 任务队列大小
+      queueCapacity: 3000
+      # 缓冲队列中线程的空闲时间
+      keepAliveSeconds: 300
+
+# feign
+feign:
+  okhttp:
+    enabled: true
+  hystrix:
+    enabled: true
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 100000
+        readTimeout: 100000
+
+# 定义日志输出级别
+logging:
+  level:
+    # spring 包日志输出级别
+    org.springframework: info
+    # alibaba 包日志输出级别
+    com.alibaba.cloud: info
+    # nacos 心跳 INFO 屏蔽
+    com.alibaba.nacos: off
+    # undertow
+    io.undertow: info
+    # remi-boot
+    ai.remi.boot: debug
+    # mybatis-plus
+    com.baomidou.mybatisplus: debug

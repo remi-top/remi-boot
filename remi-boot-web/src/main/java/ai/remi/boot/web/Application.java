@@ -19,7 +19,7 @@ public class Application {
 
     public static void main(String[] args) {
 
-        System.setProperty("cfg.env","local");
+        System.setProperty("cfg.env","dev");
 
         SpringApplication.run(Application.class, args);
 

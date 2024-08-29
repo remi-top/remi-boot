@@ -18,7 +18,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!--排除spring-boot-starter-tomcat-->
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- 添加Undertow容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
 
         <!--spring-cloud-->
         <dependency>
@@ -55,17 +69,23 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>-->
-        
+
         <!--remi-comm-web-->
         <dependency>
             <groupId>ai.remi.comm</groupId>
             <artifactId>remi-comm-web</artifactId>
         </dependency>
-        
-        <!--remi-comm-feign-->
+
+        <!--remi-comm-log-->
         <dependency>
             <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-feign</artifactId>
+            <artifactId>remi-comm-log</artifactId>
+        </dependency>
+
+        <!--remi-ids-server-->
+        <dependency>
+            <groupId>ai.remi.boot</groupId>
+            <artifactId>remi-boot-server</artifactId>
         </dependency>
 
         <!--remi-ids-job-->
@@ -74,10 +94,10 @@
             <artifactId>remi-boot-job</artifactId>
         </dependency>
 
-        <!--引入项目模块依赖-->
+        <!--remi-ids-api-->
         <dependency>
             <groupId>ai.remi.boot</groupId>
-            <artifactId>remi-boot-server</artifactId>
+            <artifactId>remi-boot-api</artifactId>
         </dependency>
     </dependencies>
 
