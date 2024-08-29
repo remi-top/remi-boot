@@ -1,0 +1,121 @@
+spring:
+  config:
+    activate:
+      on-profile: uat
+  servlet:
+    multipart:
+      # 上传文件总的最大值
+      max-request-size: 100MB
+      # 单个文件的最大值
+      max-file-size: 100MB
+  datasource:
+    # postgresql
+    url: jdbc:postgresql://192.168.10.100:5432/ydsz-fam-uat?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+#    url: jdbc:postgresql://146.56.199.179:35432/ydsz-fam-uat?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: dianjiu63
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    # 配置获取连接等待超时的时间
+    max-wait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    time-between-eviction-runs-millis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    min-evictable-idle-time-millis: 300000
+    # mysql
+    # validation-query: SELECT 1 FROM DUAL
+    # postgre
+    validation-query: SELECT 1
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    pool-prepared-statements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    max-pool-prepared-statement-per-connection-size: 20
+    filters: stat,wall
+    use-global-data-source-stat: true
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    database: 1
+    host: 192.168.10.100
+#    host: 146.56.199.179
+    password:
+    port: 6379
+#    port: 36379
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        timeout: 1000
+# MinIO
+minio:
+  #对象存储服务的URL
+  url: http://146.56.199.179:29000
+  #账户
+  accessKey: admin
+  #密码
+  secretKey: admin123456
+  #存储桶
+  bucketName: ydsz-fam-local
+# 异步线程配置
+async:
+  executor:
+    thread:
+      # 核心线程数
+      corePoolSize: 10
+      # 最大线程数
+      maxPoolSize: 20
+      # 任务队列大小
+      queueCapacity: 1000
+      # 缓冲队列中线程的空闲时间
+      keepAliveSeconds: 300
+
+# 拦截器
+sql-intercept:
+  tenant:
+    groupTenant:
+      enable: true
+    companyTenant:
+      enable: true
+    anonUrlSet: /login,/logout
+  field-fill:
+    createdByIntercept:
+      enable: true
+    updateByIntercept:
+      enable: true
+    createAtIntercept:
+      enable: true
+    updateAtIntercept:
+      enable: true
+
+## 开启店铺id 拦截器
+interceptor:
+  company:
+    enabled: true
+
+# 开启系统操作日志
+log:
+  record:
+    enabled: true
+# 日志输出路径配置
+logback:
+#  logDir: /app/logs/ydszboot/fam/
+  logDir: /Users/dianjiu/DevLogs/ydsz/ydsz-epiboly/ydsz-fam
+
+# 定义日志输出级别
+logging:
+  level:
+    com.ydsz: info
+    #spring 包日志输出级别
+    org.springframework: info
+    # mybatis-plus
+    com.baomidou.mybatisplus: debug
+    com.scm.scheduling.infra.mapper: debug
