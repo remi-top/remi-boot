@@ -36,21 +36,22 @@ https://github.com/remi-top
 
 ~~~
 remi-boot     
-├── docker                                        // 容器部署
-├── docs                                          // 说明文档
-│   └── drawio                                    // 流程图设计
-│   └── pdman                                     // 数据库设计
-│   └── sqls                                      // 数据库脚本
-│   └── envs                                      // 多环境配置
+├── docker                                         // 容器部署
+├── docs                                           // 说明文档
+│   └── drawio                                     // 流程图设计
+│   └── pdman                                      // 数据库设计
+│   └── sqls                                       // 数据库脚本
+│   └── envs                                       // 多环境配置
 ├── remi-boot-api                                  // 服务间门面接口模块
-├── remi-boot-app                                  // H5、小程序、App等C端门面接口模块 [18082]
-├── startdis-comm                                 // 通用模块(领域模型、异常模块、工具类等)
+├── remi-boot-app                                  // H5、小程序、App等C端门面接口模块 [8082]
 ├── remi-boot-domain                               // 领域实体模块，包含实体、值对象、聚合、事件等
 ├── remi-boot-infra                                // 领域基础设施模块，包含持久化
-├── startdis-gen                                  // 基础数据代码生成模块
 ├── remi-boot-job                                  // 分布式任务实现模块
 ├── remi-boot-server                               // 业务服务实现模块
-├── remi-boot-web                                  // B端门户接口模块 [18081]
-├── pom.xml                                       // 公共依赖
+├── remi-boot-web                                  // B端门户接口模块 [8081]
+├── pom.xml                                        // 公共依赖
 ~~~
+
+## 反馈建议
+![输入图片说明](https://foruda.gitee.com/images/1724906364282310014/2ed67825_5669733.gif "关注扫码动态二维码.gif")
 
