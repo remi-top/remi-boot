@@ -25,8 +25,9 @@ Remi Boot (瑞米) 是一款企业级单体架构的开发平台，是采用领�
 - [操作视频](https://remi.yuque.com/gvwcfc/video) （正在抓紧更新，敬请期待）
 
 ## 体验地址
+(欢迎体验并留下您宝贵的建议)
 
-https://remi.run
+[remi.run](https://remi.run)
 
 RemiAdmin/123456
 
