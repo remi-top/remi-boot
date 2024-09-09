@@ -8,7 +8,7 @@
     <description>remi-boot-web</description>
 
     <parent>
-        <groupId>ai.remi.boot</groupId>
+        <groupId>ai.remi.top.boot</groupId>
         <artifactId>remi-boot</artifactId>
         <version>3.1.0</version>
     </parent>
@@ -18,21 +18,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--排除spring-boot-starter-tomcat-->
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <groupId>org.springframework.boot</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
-        <!-- 添加Undertow容器 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>
-
 
         <!--spring-cloud-->
         <dependency>
@@ -84,19 +70,19 @@
 
         <!--remi-ids-server-->
         <dependency>
-            <groupId>ai.remi.boot</groupId>
+            <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-server</artifactId>
         </dependency>
 
         <!--remi-ids-job-->
         <dependency>
-            <groupId>ai.remi.boot</groupId>
+            <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-job</artifactId>
         </dependency>
 
         <!--remi-ids-api-->
         <dependency>
-            <groupId>ai.remi.boot</groupId>
+            <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-api</artifactId>
         </dependency>
     </dependencies>
