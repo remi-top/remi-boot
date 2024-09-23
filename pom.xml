@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ai.remi.boot</groupId>
+    <groupId>ai.remi.top.boot</groupId>
     <artifactId>remi-boot</artifactId>
     <name>remi-boot</name>
     <version>3.1.0</version>
@@ -157,42 +157,42 @@
 
             <!--内部服务引用开始-->
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-domain</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-infra</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-server</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-job</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-api</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-app</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>ai.remi.boot</groupId>
+                <groupId>ai.remi.top.boot</groupId>
                 <artifactId>remi-boot-web</artifactId>
                 <version>${remi-boot.version}</version>
             </dependency>

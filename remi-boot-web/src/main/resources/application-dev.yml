@@ -12,10 +12,10 @@ spring:
       max-file-size: 100MB
   datasource:
     # mysql
-    url: jdbc:mysql://192.168.31.66:3306/remi-boot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://192.168.31.200:30336/remi-boot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 123456
+    password: Remi@123
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
@@ -43,15 +43,35 @@ spring:
     connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   redis:
     database: 0
-    host: 192.168.31.66
-    password: ydsz1020
-    port: 6379
+    host: 192.168.31.200
+    password: Remi@123
+    port: 30120
     jedis:
       pool:
         max-active: 8
         max-idle: 8
         min-idle: 0
         timeout: 1000
+
+# 异步线程配置
+async:
+  executor:
+    thread:
+      # 核心线程数
+      corePoolSize: 10
+      # 最大线程数
+      maxPoolSize: 30
+      # 任务队列大小
+      queueCapacity: 3000
+      # 缓冲队列中线程的空闲时间
+      keepAliveSeconds: 300
+
+minio:
+  endpoint: http://192.168.31.200:30900
+  username: minioadmin
+  password: minioadmin
+  bucketName: remi
+
 # 拦截器
 sql-intercept:
   tenant:
@@ -70,18 +90,17 @@ sql-intercept:
     updateAtIntercept:
       enable: true
 
-minio:
-  url: http://192.168.31.88:9001
-  username: admin
-  password: Sdt@1020~
-  bucketName: remi-boot
+# springdoc
+springdoc:
+  group-configs:
+    - group: web
+      packages-to-scan: ai.remi.boot.web
+    - group: app
+      packages-to-scan: ai.remi.boot.app
 
 # 开启系统操作日志
-sdt-log:
+remi-log:
   record:
     enabled: true
     appName: remi-boot-web
-
-# 日志输出路径配置
-logback:
-  logDir: D:\\Logs\\remi\\boot\\remi-boot-web\\
+    pushUrl: http://192.168.31.200:8080/logRecord/add

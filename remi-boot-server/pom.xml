@@ -8,7 +8,7 @@
     <description>remi-boot-server</description>
 
     <parent>
-        <groupId>ai.remi.boot</groupId>
+        <groupId>ai.remi.top.boot</groupId>
         <artifactId>remi-boot</artifactId>
         <version>3.1.0</version>
     </parent>
@@ -16,7 +16,7 @@
     <dependencies>
         <!--remi-boot-infra-->
         <dependency>
-            <groupId>ai.remi.boot</groupId>
+            <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-infra</artifactId>
         </dependency>
         <!--瑞米公共模块-->
