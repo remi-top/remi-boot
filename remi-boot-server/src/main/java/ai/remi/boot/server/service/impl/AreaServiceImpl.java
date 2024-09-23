@@ -1,9 +1,9 @@
 package ai.remi.boot.server.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ai.remi.boot.domain.entity.Area;
 import ai.remi.boot.infra.mapper.AreaMapper;
 import ai.remi.boot.server.service.AreaService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

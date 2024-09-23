@@ -1,6 +1,5 @@
 package ai.remi.boot.domain.converter;
 
-
 import ai.remi.boot.domain.dto.post.GroupRolePostDTO;
 import ai.remi.boot.domain.dto.put.GroupRolePutDTO;
 import ai.remi.boot.domain.entity.GroupRole;

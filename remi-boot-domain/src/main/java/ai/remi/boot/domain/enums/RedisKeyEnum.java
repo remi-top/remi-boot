@@ -16,12 +16,12 @@ public enum RedisKeyEnum {
     /**
      * 客户登录token,24小时失效 1:{} = customerId 2:{} = token 使用方式 RedisKeysEnum.CUSTOMER_LOGIN_TOKEN.getKey(customerId,token)
      */
-    APP_CODE("sdt-saas-iam:app-code:{}:{}"),
-    USER_INFO("sdt-saas-iam:user-info:{}"),
-    TICKET("sdt-saas-iam:ticket:{}"),
-    AUTH_CODE("sdt-saas-iam:auth-code:{}"),
-    ACCESS_TOKEN("sdt-saas-iam:access-token:{}"),
-    REFRESH_TOKEN("sdt-saas-iam:refresh-token:{}");
+    APP_CODE("remi-saas-iam:app-code:{}:{}"),
+    USER_INFO("remi-saas-iam:user-info:{}"),
+    TICKET("remi-saas-iam:ticket:{}"),
+    AUTH_CODE("remi-saas-iam:auth-code:{}"),
+    ACCESS_TOKEN("remi-saas-iam:access-token:{}"),
+    REFRESH_TOKEN("remi-saas-iam:refresh-token:{}");
 
 
     /**

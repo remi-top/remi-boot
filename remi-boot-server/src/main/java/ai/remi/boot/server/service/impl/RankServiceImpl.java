@@ -1,9 +1,9 @@
 package ai.remi.boot.server.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ai.remi.boot.domain.entity.Rank;
 import ai.remi.boot.infra.mapper.RankMapper;
 import ai.remi.boot.server.service.RankService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

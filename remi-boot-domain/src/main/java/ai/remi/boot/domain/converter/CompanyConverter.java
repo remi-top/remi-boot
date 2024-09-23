@@ -1,6 +1,5 @@
 package ai.remi.boot.domain.converter;
 
-
 import ai.remi.boot.domain.dto.post.CompanyPostDTO;
 import ai.remi.boot.domain.dto.put.CompanyPutDTO;
 import ai.remi.boot.domain.entity.Company;

@@ -1,6 +1,5 @@
 package ai.remi.boot.domain.converter;
 
-
 import ai.remi.boot.domain.dto.post.GradePostDTO;
 import ai.remi.boot.domain.dto.put.GradePutDTO;
 import ai.remi.boot.domain.entity.Grade;

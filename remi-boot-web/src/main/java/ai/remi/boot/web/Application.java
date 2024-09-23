@@ -1,6 +1,6 @@
 package ai.remi.boot.web;
 
-import ai.remi.comm.feign.annotation.EnableStartdisFeignClients;
+import ai.remi.comm.feign.annotation.EnableRemiFeignClients;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -12,7 +12,7 @@ import org.springframework.jmx.support.RegistrationPolicy;
  */
  //@EnableLogRecord
 @EnableDiscoveryClient
-@EnableStartdisFeignClients
+@EnableRemiFeignClients
 @SpringBootApplication(scanBasePackages = "ai.remi")
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public class Application {

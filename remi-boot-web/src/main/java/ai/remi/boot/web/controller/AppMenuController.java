@@ -1,7 +1,6 @@
 package ai.remi.boot.web.controller;
 
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.log.annotation.LogRecord;
@@ -19,6 +18,7 @@ import ai.remi.boot.domain.vo.AppMenuVO;
 import ai.remi.boot.infra.mapper.MenuMapper;
 import ai.remi.boot.server.service.AppMenuService;
 import ai.remi.boot.server.service.AppService;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;

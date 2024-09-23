@@ -1,8 +1,6 @@
 package ai.remi.boot.web.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.exception.util.MessageUtils;
@@ -27,6 +25,8 @@ import ai.remi.boot.server.service.CompanyDeptService;
 import ai.remi.boot.server.service.DeptService;
 import ai.remi.boot.server.service.DeptUserService;
 import ai.remi.boot.server.service.UserService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;

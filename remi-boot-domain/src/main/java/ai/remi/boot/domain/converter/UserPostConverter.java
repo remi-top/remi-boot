@@ -1,6 +1,5 @@
 package ai.remi.boot.domain.converter;
 
-
 import ai.remi.boot.domain.dto.post.UserPostPostDTO;
 import ai.remi.boot.domain.dto.put.UserPostPutDTO;
 import ai.remi.boot.domain.entity.UserPost;

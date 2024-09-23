@@ -1,8 +1,6 @@
 package ai.remi.boot.web.controller;
 
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.log.annotation.LogRecord;
@@ -19,6 +17,8 @@ import ai.remi.boot.domain.tree.GroupTree;
 import ai.remi.boot.domain.vo.AppGroupVO;
 import ai.remi.boot.server.service.AppGroupService;
 import ai.remi.boot.server.service.GroupService;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;

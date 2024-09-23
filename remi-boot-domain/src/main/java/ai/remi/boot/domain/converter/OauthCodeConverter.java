@@ -1,6 +1,5 @@
 package ai.remi.boot.domain.converter;
 
-
 import ai.remi.boot.domain.dto.post.OauthCodePostDTO;
 import ai.remi.boot.domain.dto.put.OauthCodePutDTO;
 import ai.remi.boot.domain.entity.OauthCode;

@@ -1,7 +1,7 @@
 package ai.remi.boot.domain.vo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import ai.remi.boot.domain.tree.GroupTree;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

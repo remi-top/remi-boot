@@ -29,10 +29,10 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "FROM " +
-            " remi_user u, " +
-            " remi_user_post up, " +
-            " remi_dept_user du, " +
-            " remi_company_dept cd  " +
+            " sys_user u, " +
+            " sys_user_post up, " +
+            " sys_dept_user du, " +
+            " sys_company_dept cd  " +
             "WHERE " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code " +
@@ -51,9 +51,9 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "from " +
-            " remi_user u, " +
-            " remi_dept_user du, " +
-            " remi_company_dept cd  " +
+            " sys_user u, " +
+            " sys_dept_user du, " +
+            " sys_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +
@@ -86,10 +86,10 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "from " +
-            " remi_user u, " +
-            " remi_user_post up, " +
-            " remi_dept_user du, " +
-            " remi_company_dept cd  " +
+            " sys_user u, " +
+            " sys_user_post up, " +
+            " sys_dept_user du, " +
+            " sys_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +
@@ -117,9 +117,9 @@ public interface UserMapper extends BaseMapper<User> {
             "select " +
             " count(u.id) as total " +
             "from " +
-            " remi_user u, " +
-            " remi_dept_user du, " +
-            " remi_company_dept cd  " +
+            " sys_user u, " +
+            " sys_dept_user du, " +
+            " sys_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +

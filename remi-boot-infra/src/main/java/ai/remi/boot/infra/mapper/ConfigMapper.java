@@ -1,7 +1,7 @@
 package ai.remi.boot.infra.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ai.remi.boot.domain.entity.Config;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
