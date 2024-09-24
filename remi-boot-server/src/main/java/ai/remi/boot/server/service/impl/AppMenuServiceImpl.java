@@ -1,9 +1,9 @@
 package ai.remi.boot.server.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ai.remi.boot.domain.entity.AppMenu;
 import ai.remi.boot.infra.mapper.AppMenuMapper;
 import ai.remi.boot.server.service.AppMenuService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

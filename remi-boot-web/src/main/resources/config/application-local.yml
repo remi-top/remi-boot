@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: local
   servlet:
     multipart:
       # 上传文件总的最大值
@@ -9,11 +9,11 @@ spring:
       # 单个文件的最大值
       max-file-size: 100MB
   datasource:
-    # postgresql
-    url: jdbc:postgresql://192.168.10.100:5432/remi-boot-local?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: dianjiu63
+    # mysql
+    url: jdbc:mysql://192.168.31.200:30636/dev-remi-boot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Remi@123
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
@@ -27,9 +27,7 @@ spring:
     # 配置一个连接在池中最小生存的时间，单位是毫秒
     min-evictable-idle-time-millis: 300000
     # mysql
-    # validation-query: SELECT 1 FROM DUAL
-    # postgre
-    validation-query: SELECT 1
+    validation-query: SELECT 1 FROM DUAL
     test-while-idle: true
     test-on-borrow: false
     test-on-return: false
@@ -43,25 +41,16 @@ spring:
     connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   redis:
     database: 0
-    host: 192.168.10.100
-    password:
-    port: 6379
+    host: 192.168.31.200
+    password: Remi@123
+    port: 30210
     jedis:
       pool:
         max-active: 8
         max-idle: 8
         min-idle: 0
         timeout: 1000
-# MinIO
-minio:
-  #对象存储服务的URL
-  url: http://146.56.199.179:29000
-  #账户
-  accessKey: admin
-  #密码
-  secretKey: admin123456
-  #存储桶
-  bucketName: ydsz-fam-local
+
 # 异步线程配置
 async:
   executor:
@@ -69,20 +58,31 @@ async:
       # 核心线程数
       corePoolSize: 10
       # 最大线程数
-      maxPoolSize: 20
+      maxPoolSize: 30
       # 任务队列大小
-      queueCapacity: 1000
+      queueCapacity: 3000
       # 缓冲队列中线程的空闲时间
       keepAliveSeconds: 300
+
+# MinIO
+minio:
+  #对象存储服务的URL
+  endpoint: http://192.168.31.200:30090
+  #账户
+  username: minioadmin
+  #密码
+  password: minioadmin
+  #存储桶
+  bucketName: dev-remi
 
 # 拦截器
 sql-intercept:
   tenant:
-    groupTenant:
+    deptTenant:
       enable: true
     companyTenant:
       enable: true
-    anonUrlSet: /login,/logout
+    anonUrlSet: /sso/login/ticket,/sso/login/other,/sso/login/local,/sso/logout,/sso/oauth2/accessToken,/sso/oauth2/refreshToken,/sso/oauth2/checkToken,/logRecord/add,/logRecord/pageLogin,/logRecord/pageOperate,/logRecord/pageException,/logRecord/get
   field-fill:
     createdByIntercept:
       enable: true
@@ -93,25 +93,9 @@ sql-intercept:
     updateAtIntercept:
       enable: true
 
-## 开启店铺id 拦截器
-interceptor:
-  company:
-    enabled: true
-
 # 开启系统操作日志
-log:
+remi-log:
   record:
     enabled: true
-# 日志输出路径配置
-logback:
-  logDir: /app/logs/ydszboot/fam
-
-# 定义日志输出级别
-logging:
-  level:
-    com.ydsz: info
-    #spring 包日志输出级别
-    org.springframework: info
-    # mybatis-plus
-    com.baomidou.mybatisplus: debug
-    com.scm.scheduling.infra.mapper: debug
+    appName: remi-iam-web
+    pushUrl: http://192.168.31.18:1010/logRecord/add

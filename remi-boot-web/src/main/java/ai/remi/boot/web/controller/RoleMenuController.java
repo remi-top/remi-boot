@@ -1,11 +1,12 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.RoleMenuConverter;
 import ai.remi.boot.domain.dto.post.RoleMenuPostDTO;
@@ -15,9 +16,6 @@ import ai.remi.boot.domain.query.RoleMenuQuery;
 import ai.remi.boot.domain.vo.RoleMenuVO;
 import ai.remi.boot.server.service.MenuService;
 import ai.remi.boot.server.service.RoleMenuService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -114,7 +112,7 @@ public class RoleMenuController {
      */
     @PostMapping("/addOrUpdate")
     @Operation(summary = "给角色批量授权菜单")
-    @LogRecord(content = "给角色批量授权菜单", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "给角色批量授权菜单", businessType = BusinessType.GRANT)
     public ResultBean<Boolean> addOrUpdate(@RequestBody @Validated List<RoleMenuPostDTO> roleMenuDTOs) {
         //先删除后新增
         roleMenuService.remove(Wrappers.<RoleMenu>lambdaQuery().eq(RoleMenu::getRoleId, roleMenuDTOs.get(0).getRoleId()));

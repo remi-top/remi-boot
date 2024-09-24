@@ -1,8 +1,8 @@
 package ai.remi.boot.server.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import ai.remi.boot.domain.entity.User;
 import ai.remi.boot.domain.vo.UserVO;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author DianJiu
@@ -16,6 +16,4 @@ public interface UserService extends IService<User> {
     UserVO getUserById(String id);
 
     User login(String username, String password);
-
-    boolean updatePwd(String userId, String nowPassword, String newPassword);
 }

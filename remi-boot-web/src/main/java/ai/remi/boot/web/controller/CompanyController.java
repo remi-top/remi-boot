@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
@@ -20,8 +20,6 @@ import ai.remi.boot.domain.tree.CompanyTree;
 import ai.remi.boot.domain.vo.CompanyVO;
 import ai.remi.boot.server.service.CompanyDeptService;
 import ai.remi.boot.server.service.CompanyService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -125,7 +123,7 @@ public class CompanyController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增公司数据", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增公司数据", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated CompanyPostDTO companyDTO) {
         //处理格式转换
         Company company = CompanyConverter.INSTANT.postDtoToEntity(companyDTO);
@@ -141,7 +139,7 @@ public class CompanyController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "更新公司数据", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "更新公司数据", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated CompanyPutDTO companyDTO) {
         //处理格式转换
         Company company = CompanyConverter.INSTANT.putDtoToEntity(companyDTO);
@@ -157,7 +155,7 @@ public class CompanyController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除公司数据", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除公司数据", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         for (String id : ids) {
             Company company = companyService.getOne(Wrappers.<Company>lambdaQuery().eq(Company::getParentId, id).last("limit 1"));

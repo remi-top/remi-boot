@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author DianJiu

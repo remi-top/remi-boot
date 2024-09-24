@@ -1,8 +1,6 @@
 package ai.remi.boot.web.controller;
 
 import ai.remi.comm.core.result.ResultBean;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.redis.service.RedisService;
 import ai.remi.comm.util.object.ObjectUtils;
 import ai.remi.boot.domain.constant.Oauth2Constant;
@@ -44,7 +42,7 @@ public class LogoutController {
      */
     @Operation(summary = "根据Ticket登出")
     @RequestMapping(method = RequestMethod.GET)
-    @LogRecord(content = "通过Ticket登出系统", businessType = BusinessType.LOGOUT)
+    //@LogRecord(content = "通过Ticket登出系统", businessType = BusinessType.LOGOUT)
     public ResultBean<String> logout(
             @RequestParam(value = SsoConstant.REDIRECT_URL) String redirectUrl,
             @RequestParam(value = Oauth2Constant.CLIENT_TICKET) String ticket,

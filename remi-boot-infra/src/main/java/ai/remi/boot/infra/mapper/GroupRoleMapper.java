@@ -1,7 +1,7 @@
 package ai.remi.boot.infra.mapper;
 
-import ai.remi.boot.domain.entity.GroupRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import ai.remi.boot.domain.entity.GroupRole;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

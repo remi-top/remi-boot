@@ -1,10 +1,9 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
 import ai.remi.comm.util.string.StringUtils;
@@ -18,7 +17,6 @@ import ai.remi.boot.domain.vo.AppMenuVO;
 import ai.remi.boot.infra.mapper.MenuMapper;
 import ai.remi.boot.server.service.AppMenuService;
 import ai.remi.boot.server.service.AppService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -97,7 +95,7 @@ public class AppMenuController {
      */
     @PostMapping("/addOrUpdate")
     @Operation(summary = "给应用批量配置菜单")
-    @LogRecord(content = "给应用批量配置菜单", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "给应用批量配置菜单", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> addOrUpdate(@RequestBody @Validated List<AppMenuPostDTO> appMenuDTOs) {
         //先删除后新增
         appMenuService.remove(Wrappers.<AppMenu>lambdaQuery().eq(AppMenu::getAppId, appMenuDTOs.get(0).getAppId()));

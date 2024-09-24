@@ -1,5 +1,6 @@
 package ai.remi.boot.domain.converter;
 
+
 import ai.remi.boot.domain.dto.post.RankPostDTO;
 import ai.remi.boot.domain.dto.put.RankPutDTO;
 import ai.remi.boot.domain.entity.Rank;

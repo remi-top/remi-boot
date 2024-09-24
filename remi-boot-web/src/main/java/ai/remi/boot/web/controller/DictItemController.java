@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.DictItemConverter;
 import ai.remi.boot.domain.dto.post.DictItemPostDTO;
@@ -14,8 +14,6 @@ import ai.remi.boot.domain.entity.DictItem;
 import ai.remi.boot.domain.query.DictItemQuery;
 import ai.remi.boot.domain.vo.DictItemVO;
 import ai.remi.boot.server.service.DictItemService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -102,7 +100,7 @@ public class DictItemController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增字典项值", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增字典项值", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated DictItemPostDTO dictItemDTO) {
         //处理格式转换
         DictItem dictItem = DictItemConverter.INSTANT.postDtoToEntity(dictItemDTO);
@@ -118,7 +116,7 @@ public class DictItemController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改字典项值", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改字典项值", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated DictItemPutDTO dictItemDTO) {
         //处理格式转换
         DictItem dictItem = DictItemConverter.INSTANT.putDtoToEntity(dictItemDTO);
@@ -134,7 +132,7 @@ public class DictItemController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除字典项值", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除字典项值", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(dictItemService.removeByIds(ids));
     }

@@ -3,8 +3,6 @@ package ai.remi.boot.web.controller;
 
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.redis.service.RedisService;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.bean.BeanCopyUtils;
@@ -67,7 +65,7 @@ public class LoginController {
      */
     @GetMapping("/ticket")
     @Operation(summary = "根据Ticket登录")
-    @LogRecord(content = "通过Ticket登录系统", businessType = BusinessType.LOGIN)
+    //@LogRecord(content = "通过Ticket登录系统", businessType = BusinessType.LOGIN)
     public ResultBean<OauthCodeVO> ticketLogin(
             @RequestParam(value = SsoConstant.REDIRECT_URL) String redirectUrl,
             @RequestParam(value = Oauth2Constant.APP_KEY) String appKey,
@@ -91,7 +89,7 @@ public class LoginController {
      */
     @PostMapping("/other")
     @Operation(summary = "根据账号密码登录")
-    @LogRecord(content = "三方系统根据账号密码登录", businessType = BusinessType.LOGIN)
+    //@LogRecord(content = "三方系统根据账号密码登录", businessType = BusinessType.LOGIN)
     public ResultBean<OauthCodeVO> otherLogin(
             @RequestParam(value = SsoConstant.REDIRECT_URL) String redirectUrl,
             @RequestParam(value = Oauth2Constant.APP_KEY) String appKey,
@@ -118,7 +116,7 @@ public class LoginController {
      */
     @PostMapping("/local")
     @Operation(summary = "根据账号密码登录")
-    @LogRecord(content = "本地系统根据账号密码登录", businessType = BusinessType.LOGIN)
+    //@LogRecord(content = "本地系统根据账号密码登录", businessType = BusinessType.LOGIN)
     public ResultBean<AccessTokenVO> localLogin(
             @RequestParam(value = SsoConstant.REDIRECT_URL) String redirectUrl,
             @RequestParam(value = Oauth2Constant.APP_KEY) String appKey,

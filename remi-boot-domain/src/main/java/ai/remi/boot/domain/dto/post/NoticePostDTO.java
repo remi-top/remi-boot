@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author DianJiu
@@ -18,14 +19,14 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @Schema(description = "通知公告")
 public class NoticePostDTO implements Serializable {
-    private static final long serialVersionUID = -85705948237810052L;
+    private static final long serialVersionUID = 638388066835790215L;
 
 
     /**
      * 通知标题
      */
     @Schema(description = "通知标题")
-    private Integer noticeTitle;
+    private String noticeTitle;
 
     /**
      * 通知类型（1通知公告 2系统消息）

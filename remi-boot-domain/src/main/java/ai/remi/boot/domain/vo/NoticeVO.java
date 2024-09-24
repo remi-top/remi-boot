@@ -1,11 +1,14 @@
 package ai.remi.boot.domain.vo;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -20,7 +23,7 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true)
 @Schema(description = "通知公告")
 public class NoticeVO implements Serializable {
-    private static final long serialVersionUID = 695350673723880666L;
+    private static final long serialVersionUID = 241220840441831277L;
     /**
      * ID
      */
@@ -30,8 +33,7 @@ public class NoticeVO implements Serializable {
      * 通知标题
      */
     @Schema(description = "通知标题")
-    private Integer noticeTitle;
-
+    private String noticeTitle;
     /**
      * 通知类型（1通知公告 2系统消息）
      */

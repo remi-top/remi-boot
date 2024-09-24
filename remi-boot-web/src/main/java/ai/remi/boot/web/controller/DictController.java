@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.DictConverter;
 import ai.remi.boot.domain.dto.post.DictPostDTO;
@@ -14,8 +14,6 @@ import ai.remi.boot.domain.entity.Dict;
 import ai.remi.boot.domain.query.DictQuery;
 import ai.remi.boot.domain.vo.DictVO;
 import ai.remi.boot.server.service.DictService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -102,7 +100,7 @@ public class DictController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增字典数据", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增字典数据", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated DictPostDTO dictDTO) {
         //处理格式转换
         Dict dict = DictConverter.INSTANT.postDtoToEntity(dictDTO);
@@ -118,7 +116,7 @@ public class DictController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改字典数据", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改字典数据", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated DictPutDTO dictDTO) {
         //处理格式转换
         Dict dict = DictConverter.INSTANT.putDtoToEntity(dictDTO);
@@ -134,7 +132,7 @@ public class DictController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除字典树", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除字典树", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(dictService.removeByIds(ids));
     }

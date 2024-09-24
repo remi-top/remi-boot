@@ -1,8 +1,8 @@
 package ai.remi.boot.server.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import ai.remi.boot.domain.entity.AccessToken;
 import ai.remi.boot.domain.entity.OauthCode;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @author DianJiu

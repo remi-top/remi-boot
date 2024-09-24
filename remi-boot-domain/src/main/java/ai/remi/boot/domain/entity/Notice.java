@@ -1,5 +1,6 @@
 package ai.remi.boot.domain.entity;
 
+
 import ai.remi.comm.domain.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -19,10 +20,11 @@ import lombok.experimental.SuperBuilder;
 @TableName("remi_notice")
 public class Notice extends BaseEntity {
 
+
     /**
      * 通知标题
      */
-    private Integer noticeTitle;
+    private String noticeTitle;
 
     /**
      * 通知类型（1通知公告 2系统消息）

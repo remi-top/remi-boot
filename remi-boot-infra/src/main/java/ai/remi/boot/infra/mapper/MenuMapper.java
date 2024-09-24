@@ -1,9 +1,9 @@
 package ai.remi.boot.infra.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ai.remi.boot.domain.entity.Menu;
 import ai.remi.boot.domain.tree.MenuTree;
 import ai.remi.boot.domain.vo.MenuVO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -23,8 +23,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
             " am.app_id,  " +
             " am.app_code  " +
             "FROM " +
-            " sys_menu m, " +
-            " sys_app_menu am  " +
+            " iam_menu m, " +
+            " iam_app_menu am  " +
             "WHERE " +
             " m.menu_code = am.menu_code  " +
             " AND m.id = am.menu_id  " +
@@ -37,8 +37,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
             " am.app_id,  " +
             " am.app_code  " +
             "from " +
-            " sys_menu m, " +
-            " sys_app_menu am  " +
+            " iam_menu m, " +
+            " iam_app_menu am  " +
             "where " +
             " m.menu_code = am.menu_code  " +
             " AND m.id = am.menu_id  " +
@@ -56,8 +56,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
             " am.app_id,  " +
             " am.app_code  " +
             "from " +
-            " sys_menu m, " +
-            " sys_app_menu am  " +
+            " iam_menu m, " +
+            " iam_app_menu am  " +
             "where " +
             " m.menu_code = am.menu_code  " +
             " AND m.id = am.menu_id  " +

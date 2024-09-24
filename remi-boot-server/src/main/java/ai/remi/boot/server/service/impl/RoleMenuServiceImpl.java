@@ -1,9 +1,9 @@
 package ai.remi.boot.server.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ai.remi.boot.domain.entity.RoleMenu;
 import ai.remi.boot.infra.mapper.RoleMenuMapper;
 import ai.remi.boot.server.service.RoleMenuService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

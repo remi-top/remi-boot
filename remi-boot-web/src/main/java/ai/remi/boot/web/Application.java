@@ -10,7 +10,7 @@ import org.springframework.jmx.support.RegistrationPolicy;
 /**
  * 系统服务启动程序
  */
- //@EnableLogRecord
+//@EnableLogRecord
 @EnableDiscoveryClient
 @EnableRemiFeignClients
 @SpringBootApplication(scanBasePackages = "ai.remi")
@@ -18,8 +18,7 @@ import org.springframework.jmx.support.RegistrationPolicy;
 public class Application {
 
     public static void main(String[] args) {
-
-        System.setProperty("cfg.env","dev");
+        System.setProperty("cfg.env","local");
 
         SpringApplication.run(Application.class, args);
 

@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>remi-boot-domain</artifactId>
     <name>remi-boot-domain</name>
-    <version>${remi-boot.version}</version>
     <description>remi-boot-domain</description>
 
     <parent>
@@ -16,12 +15,12 @@
     <dependencies>
         <!--remi-comm-domain-->
         <dependency>
-            <groupId>ai.remi.comm</groupId>
+            <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-domain</artifactId>
         </dependency>
         <!--remi-comm-swagger-->
         <dependency>
-            <groupId>ai.remi.comm</groupId>
+            <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-swagger</artifactId>
         </dependency>
         <!-- Lombok -->

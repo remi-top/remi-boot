@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(value = "sdt-iam-web", configuration = FeignAutoConfiguration.class, fallbackFactory = IamClientFactory.class)
+@FeignClient(value = "remi-boot-web", configuration = FeignAutoConfiguration.class, fallbackFactory = IamClientFactory.class)
 public interface IamClientApi {
 
     @Operation(summary = "保存日志")

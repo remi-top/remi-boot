@@ -2,8 +2,6 @@ package ai.remi.boot.web.controller;
 
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.redis.service.RedisService;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.boot.domain.constant.Oauth2Constant;
@@ -68,7 +66,7 @@ public class Oauth2Controller {
             @Parameter(name = Oauth2Constant.APP_KEY, description = "应用的appKey", required = true),
             @Parameter(name = Oauth2Constant.APP_SECRET, description = "应用的appSecret", required = true)
     })
-    @LogRecord(content = "通过authCode获取鉴权令牌", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "通过authCode获取鉴权令牌", businessType = BusinessType.GRANT)
     public ResultBean<AccessTokenVO> getTokenByAuthCode(@RequestParam(value = Oauth2Constant.AUTH_TYPE) String authType,
                                                            @RequestParam(value = Oauth2Constant.AUTH_CODE) String authCode,
                                                            @RequestParam(value = Oauth2Constant.APP_KEY) String appKey,
@@ -114,7 +112,7 @@ public class Oauth2Controller {
             @Parameter(name = Oauth2Constant.APP_SECRET, description = "应用的appSecret", required = true),
             @Parameter(name = Oauth2Constant.REFRESH_TOKEN, description = "刷新token", required = true)
     })
-    @LogRecord(content = "通过refreshToken获取鉴权令牌", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "通过refreshToken获取鉴权令牌", businessType = BusinessType.GRANT)
     public ResultBean<AccessTokenVO> getTokenByRefreshToken(@RequestParam(value = Oauth2Constant.APP_KEY) String appKey,
                                                             @RequestParam(value = Oauth2Constant.APP_SECRET) String appSecret,
                                                             @RequestParam(value = Oauth2Constant.REFRESH_TOKEN) String refreshToken) {
@@ -152,7 +150,7 @@ public class Oauth2Controller {
     @Validated
     @GetMapping("/checkToken")
     @Operation(summary = "校验鉴权令牌")
-    @LogRecord(content = "校验鉴权令牌的有效性", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "校验鉴权令牌的有效性", businessType = BusinessType.GRANT)
     public ResultBean<Boolean> checkToken(@RequestParam(value = Oauth2Constant.APP_KEY) String appKey,
                                           @RequestParam(value = Oauth2Constant.ACCESS_TOKEN) String accessToken) {
 

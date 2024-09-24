@@ -1,13 +1,12 @@
 # 服务端口号
 server:
-  port: 1010
+  port: 12801
 
 spring:
   application:
-    name: remi-iam-web
+    name: remi-boot-app
   profiles:
-    active: dev
-    #active: sit
+    active: local
   cloud:
     # nacos
     nacos:
@@ -16,14 +15,11 @@ spring:
       password: nacos
       discovery:
         # 配置中心的地址
-        server-addr: ${NACOS_HOST:192.168.31.18}:${NACOS_PORT:8848}
-        #server-addr: ${NACOS_HOST:192.168.31.201}:${NACOS_PORT:8848}
+        server-addr: ${NACOS_HOST:192.168.1.31}:${NACOS_PORT:8848}
         #命名空间
-        namespace: ${SERVICE_NAME_SPACE_NAME:dev}
-        #namespace: ${SERVICE_NAME_SPACE_NAME:sit}
+        namespace: ${spring.profiles.active:dev}
         # 配置文件的环境
         group: ${SERVICE_DISCOVERY_GROUP_NAME:dev}
-        #group: ${SERVICE_DISCOVERY_GROUP_NAME:sit}
       # 配置中心
       config:
         # 配置中心的地址
@@ -43,10 +39,7 @@ spring:
         # 共享配置
         shared-configs:
           #  Data Id 的默认完整格式为： ${prefix}-${spring.profile.active}.${file-extension}。
-          - dataId: remi-cloud-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - dataId: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.cloud.nacos.discovery.group}
             #是否自动刷新
             refresh: true
-
-
-

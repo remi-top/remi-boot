@@ -1,12 +1,18 @@
 package ai.remi.boot.domain.vo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author DianJiu

@@ -1,7 +1,7 @@
 package ai.remi.boot.server.service;
 
-import ai.remi.boot.domain.entity.AppMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import ai.remi.boot.domain.entity.AppMenu;
 
 /**
  * @author DianJiu

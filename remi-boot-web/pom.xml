@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>remi-boot-web</artifactId>
     <name>remi-boot-web</name>
-    <version>${remi-boot.version}</version>
     <description>remi-boot-web</description>
 
     <parent>
@@ -18,6 +17,20 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-nop</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
 
         <!--spring-cloud-->
@@ -51,22 +64,22 @@
         </dependency>
 
         <!--防刷限流-->
-        <!--<dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>com.alibaba.cloud</groupId>-->
+        <!--    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+        <!--</dependency>-->
 
         <!--remi-comm-web-->
         <dependency>
-            <groupId>ai.remi.comm</groupId>
+            <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-web</artifactId>
         </dependency>
 
         <!--remi-comm-log-->
-        <dependency>
-            <groupId>ai.remi.comm</groupId>
+        <!--<dependency>
+            <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-log</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--remi-ids-server-->
         <dependency>
@@ -85,6 +98,7 @@
             <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-api</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

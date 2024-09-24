@@ -1,12 +1,13 @@
 package ai.remi.boot.web.controller;
 
 
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.redis.service.RedisService;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
@@ -24,9 +25,6 @@ import ai.remi.boot.infra.mapper.UserMapper;
 import ai.remi.boot.server.service.DeptUserService;
 import ai.remi.boot.server.service.UserPostService;
 import ai.remi.boot.server.service.UserService;
-import cn.hutool.core.bean.BeanUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
@@ -131,7 +129,7 @@ public class UserController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "录入用户信息", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "录入用户信息", businessType = BusinessType.INSERT)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> insert(@RequestBody @Validated UserPostDTO userDTO) {
         //处理格式转换
@@ -154,24 +152,6 @@ public class UserController {
     }
 
     /**
-     * 更新密码
-     *
-     * @return 修改结果
-     */
-    @PutMapping("/updatePwd")
-    @Operation(summary = "更新密码")
-    @LogRecord(content = "修改用户密码", businessType = BusinessType.UPDATE)
-    @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
-    public ResultBean<Boolean> updatePwd(@RequestParam("userId") String userId,
-                                         @RequestParam("nowPassword") String nowPassword,
-                                         @RequestParam("newPassword") String newPassword) {
-        //执行数据更新
-        boolean updated = userService.updatePwd(userId, nowPassword, newPassword);
-        AssertUtils.isTrue(updated, MessageUtils.getMessage("update.user.pwd.error"));
-        return ResultBean.success("更新密码成功！");
-    }
-
-    /**
      * 修改数据
      *
      * @param userDTO 实体对象
@@ -179,7 +159,7 @@ public class UserController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "更新用户信息", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "更新用户信息", businessType = BusinessType.UPDATE)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> update(@RequestBody @Validated UserPutDTO userDTO) {
         //处理格式转换
@@ -208,7 +188,7 @@ public class UserController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除用户信息", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除用户信息", businessType = BusinessType.DELETE)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         for (String id : ids) {
@@ -221,5 +201,6 @@ public class UserController {
         }
         return ResultBean.success(userService.removeByIds(ids));
     }
+
 }
 

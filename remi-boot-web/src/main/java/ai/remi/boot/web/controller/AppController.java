@@ -1,11 +1,12 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.id.SnowflakeUtils;
 import ai.remi.boot.domain.converter.AppConverter;
@@ -20,9 +21,6 @@ import ai.remi.boot.domain.vo.ConfigVO;
 import ai.remi.boot.server.service.AppService;
 import ai.remi.boot.server.service.ConfigService;
 import ai.remi.boot.server.util.AppUtils;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -114,7 +112,7 @@ public class AppController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增应用配置", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增应用配置", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated AppPostDTO appDTO) {
         //处理格式转换
         App app = AppConverter.INSTANT.postDtoToEntity(appDTO);
@@ -152,7 +150,7 @@ public class AppController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改应用配置", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改应用配置", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated AppPutDTO appDTO) {
         //处理格式转换
         App app = AppConverter.INSTANT.putDtoToEntity(appDTO);
@@ -178,7 +176,7 @@ public class AppController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除应用数据", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除应用数据", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(appService.removeByIds(ids));
     }

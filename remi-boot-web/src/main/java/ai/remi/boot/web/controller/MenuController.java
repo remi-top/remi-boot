@@ -1,11 +1,10 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
 import ai.remi.comm.util.id.SnowflakeUtils;
@@ -21,7 +20,6 @@ import ai.remi.boot.domain.vo.MenuVO;
 import ai.remi.boot.infra.mapper.MenuMapper;
 import ai.remi.boot.server.service.AppMenuService;
 import ai.remi.boot.server.service.MenuService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -95,7 +93,7 @@ public class MenuController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增菜单数据", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增菜单数据", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated MenuPostDTO menuDTO) {
         //处理格式转换
         Menu menu = MenuConverter.INSTANT.postDtoToEntity(menuDTO);
@@ -120,7 +118,7 @@ public class MenuController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改菜单数据", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改菜单数据", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated MenuPutDTO menuDTO) {
         //处理格式转换
         Menu menu = MenuConverter.INSTANT.putDtoToEntity(menuDTO);
@@ -136,7 +134,7 @@ public class MenuController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除菜单数据", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除菜单数据", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         for (String id : ids) {
             //删除应用菜单中间表

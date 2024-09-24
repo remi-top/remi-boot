@@ -1,9 +1,9 @@
 package ai.remi.boot.infra.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ai.remi.boot.domain.entity.Dept;
 import ai.remi.boot.domain.tree.DeptTree;
 import ai.remi.boot.domain.vo.DeptVO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -23,8 +23,8 @@ public interface DeptMapper extends BaseMapper<Dept> {
         " cd.company_id,  " +
         " cd.company_code  " +
         "FROM " +
-        " sys_dept d, " +
-        " sys_company_dept cd  " +
+        " iam_dept d, " +
+        " iam_company_dept cd  " +
         "WHERE " +
         " d.dept_code = cd.dept_code  " +
         " AND d.id = cd.dept_id  " +
@@ -37,8 +37,8 @@ public interface DeptMapper extends BaseMapper<Dept> {
         " cd.company_id,  " +
         " cd.company_code  " +
         "from " +
-        " sys_dept d, " +
-        " sys_company_dept cd  " +
+        " iam_dept d, " +
+        " iam_company_dept cd  " +
         "where " +
         " d.dept_code = cd.dept_code  " +
         " and d.id = cd.dept_id  " +

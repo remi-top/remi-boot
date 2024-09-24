@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>remi-boot-server</artifactId>
     <name>remi-boot-server</name>
-    <version>${remi-boot.version}</version>
     <description>remi-boot-server</description>
 
     <parent>
@@ -14,31 +13,40 @@
     </parent>
 
     <dependencies>
+        <!--启迪公共模块-->
+        <dependency>
+            <groupId>ai.remi.top.comm</groupId>
+            <artifactId>remi-comm-exception</artifactId>
+        </dependency>
+        <!--<dependency>
+            <groupId>ai.remi.top.comm</groupId>
+            <artifactId>remi-comm-storage</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>ai.remi.top.comm</groupId>
+            <artifactId>remi-comm-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.remi.top.comm</groupId>
+            <artifactId>remi-comm-thread</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.remi.top.comm</groupId>
+            <artifactId>remi-comm-util</artifactId>
+        </dependency>
         <!--remi-boot-infra-->
         <dependency>
             <groupId>ai.remi.top.boot</groupId>
             <artifactId>remi-boot-infra</artifactId>
         </dependency>
-        <!--瑞米公共模块-->
+        <!--slf4j-->
         <dependency>
-            <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-exception</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
         </dependency>
         <dependency>
-            <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-minio</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-thread</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ai.remi.comm</groupId>
-            <artifactId>remi-comm-util</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
         </dependency>
     </dependencies>
 

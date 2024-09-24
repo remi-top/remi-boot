@@ -1,12 +1,13 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.object.ObjectUtils;
@@ -18,9 +19,6 @@ import ai.remi.boot.domain.query.UserRoleQuery;
 import ai.remi.boot.domain.vo.UserRoleVO;
 import ai.remi.boot.server.service.UserRoleService;
 import ai.remi.boot.server.service.UserService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
@@ -115,7 +113,7 @@ public class UserRoleController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "给基础角色批量分配用户", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "给基础角色批量分配用户", businessType = BusinessType.GRANT)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> insert(@RequestBody @Validated List<UserRolePostDTO> userRoleDTOs) {
         for (UserRolePostDTO userRoleDTO : userRoleDTOs) {
@@ -137,7 +135,7 @@ public class UserRoleController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "批量删除基础角色已分配的用户", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "批量删除基础角色已分配的用户", businessType = BusinessType.GRANT)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(userRoleService.removeByIds(ids));
     }

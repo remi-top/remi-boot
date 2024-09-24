@@ -1,5 +1,6 @@
 package ai.remi.boot.domain.converter;
 
+
 import ai.remi.boot.domain.dto.post.LogRecordPostDTO;
 import ai.remi.boot.domain.dto.put.LogRecordPutDTO;
 import ai.remi.boot.domain.entity.LogRecord;

@@ -1,10 +1,10 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
 import ai.remi.comm.util.string.StringUtils;
@@ -17,8 +17,6 @@ import ai.remi.boot.domain.tree.GroupTree;
 import ai.remi.boot.domain.vo.AppGroupVO;
 import ai.remi.boot.server.service.AppGroupService;
 import ai.remi.boot.server.service.GroupService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -101,7 +99,7 @@ public class AppGroupController {
      */
     @PostMapping("/addOrUpdate")
     @Operation(summary = "给应用批量配置业务组织")
-    @LogRecord(content = "给应用批量配置业务组织", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "给应用批量配置业务组织", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> addOrUpdate(@RequestBody @Validated List<AppGroupPostDTO> appGroups) {
         //先删除后新增
         appGroupService.remove(Wrappers.<AppGroup>lambdaQuery().eq(AppGroup::getAppId, appGroups.get(0).getAppId()));

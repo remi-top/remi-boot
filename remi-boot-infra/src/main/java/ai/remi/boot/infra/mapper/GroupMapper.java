@@ -1,8 +1,8 @@
 package ai.remi.boot.infra.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ai.remi.boot.domain.entity.Group;
 import ai.remi.boot.domain.tree.GroupTree;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -23,8 +23,8 @@ public interface GroupMapper extends BaseMapper<Group> {
             " ag.app_id,  " +
             " ag.app_code  " +
             "from " +
-            " sys_group g, " +
-            " sys_app_group ag  " +
+            " iam_group g, " +
+            " iam_app_group ag  " +
             "where " +
             " g.group_code = ag.group_code  " +
             " AND g.id = ag.group_id  " +

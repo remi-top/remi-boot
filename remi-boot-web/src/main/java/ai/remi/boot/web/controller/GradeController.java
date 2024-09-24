@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.GradeConverter;
 import ai.remi.boot.domain.dto.post.GradePostDTO;
@@ -14,8 +14,6 @@ import ai.remi.boot.domain.entity.Grade;
 import ai.remi.boot.domain.query.GradeQuery;
 import ai.remi.boot.domain.vo.GradeVO;
 import ai.remi.boot.server.service.GradeService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -102,7 +100,7 @@ public class GradeController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增职系信息", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增职系信息", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated GradePostDTO gradeDTO) {
         //处理格式转换
         Grade grade = GradeConverter.INSTANT.postDtoToEntity(gradeDTO);
@@ -118,7 +116,7 @@ public class GradeController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改职系信息", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改职系信息", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated GradePutDTO gradeDTO) {
         //处理格式转换
         Grade grade = GradeConverter.INSTANT.putDtoToEntity(gradeDTO);
@@ -134,7 +132,7 @@ public class GradeController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除职系信息", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除职系信息", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(gradeService.removeByIds(ids));
     }

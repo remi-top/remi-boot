@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>remi-boot-api</artifactId>
     <name>remi-boot-api</name>
-    <version>${remi-boot.version}</version>
     <description>remi-boot-api</description>
 
     <parent>
@@ -16,7 +15,7 @@
     <dependencies>
         <!--remi-comm-feign-->
         <dependency>
-            <groupId>ai.remi.comm</groupId>
+            <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-feign</artifactId>
         </dependency>
         <!--remi-boot-domain-->

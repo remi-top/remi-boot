@@ -1,9 +1,9 @@
 package ai.remi.boot.server.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ai.remi.boot.domain.entity.UserPost;
 import ai.remi.boot.infra.mapper.UserPostMapper;
 import ai.remi.boot.server.service.UserPostService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

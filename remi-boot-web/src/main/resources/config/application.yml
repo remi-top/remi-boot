@@ -10,8 +10,11 @@ server:
     # Tomcat启动初始化的线程数，默认值25
     min-spare-threads: 30
 
-
 spring:
+  application:
+    name: remi-boot-web
+  profiles:
+    active: ${cfg.env}
   # 循环依赖的问题
   main:
     allow-circular-references: true
@@ -56,6 +59,14 @@ feign:
         connectTimeout: 100000
         readTimeout: 100000
 
+# springdoc
+springdoc:
+  group-configs:
+    - group: web
+      packages-to-scan: ai.remi.boot.web
+    - group: app
+      packages-to-scan: ai.remi.boot.app
+
 # 定义日志输出级别
 logging:
   level:
@@ -66,11 +77,5 @@ logging:
     com.alibaba.cloud: info
     # nacos 心跳 INFO 屏蔽
     com.alibaba.nacos: off
-    # undertow
-    io.undertow: info
     # mybatis-plus
     com.baomidou.mybatisplus: debug
-
-# 日志输出路径配置
-logback:
-  logDir: D:\Logs\remi\boot\remi-boot-web\

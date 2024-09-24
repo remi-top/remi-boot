@@ -1,26 +1,24 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.object.ObjectUtils;
 import ai.remi.boot.domain.converter.PostRoleConverter;
 import ai.remi.boot.domain.dto.post.PostRolePostDTO;
-import ai.remi.boot.domain.entity.Position;
 import ai.remi.boot.domain.entity.PostRole;
+import ai.remi.boot.domain.entity.Position;
 import ai.remi.boot.domain.query.PostRoleQuery;
 import ai.remi.boot.domain.vo.PostRoleVO;
 import ai.remi.boot.server.service.PositionService;
 import ai.remi.boot.server.service.PostRoleService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
@@ -116,7 +114,7 @@ public class PostRoleController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "给业务角色批量分配职位", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "给业务角色批量分配职位", businessType = BusinessType.GRANT)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> insert(@RequestBody @Validated List<PostRolePostDTO> postRoleDTOs) {
         for (PostRolePostDTO postRoleDTO : postRoleDTOs) {
@@ -138,7 +136,7 @@ public class PostRoleController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "批量删除业务角色已分配的职位", businessType = BusinessType.GRANT)
+    //@LogRecord(content = "批量删除业务角色已分配的职位", businessType = BusinessType.GRANT)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(postRoleService.removeByIds(ids));
     }

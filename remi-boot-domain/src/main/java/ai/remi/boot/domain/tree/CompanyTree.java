@@ -1,7 +1,7 @@
 package ai.remi.boot.domain.tree;
 
-import ai.remi.comm.domain.tree.TreeNode;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import ai.remi.comm.domain.tree.TreeNode;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Remi
- * @email remi@dianjiukeji.cn
+ * @email startdis@dianjiukeji.cn
  * @desc 公司表 CompanyVO对象
  */
 @Data

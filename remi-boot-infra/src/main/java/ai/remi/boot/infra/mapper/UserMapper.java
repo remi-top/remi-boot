@@ -1,9 +1,9 @@
 package ai.remi.boot.infra.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ai.remi.boot.domain.entity.User;
 import ai.remi.boot.domain.query.UserQuery;
 import ai.remi.boot.domain.vo.UserVO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -29,10 +29,10 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "FROM " +
-            " sys_user u, " +
-            " sys_user_post up, " +
-            " sys_dept_user du, " +
-            " sys_company_dept cd  " +
+            " iam_user u, " +
+            " iam_user_post up, " +
+            " iam_dept_user du, " +
+            " iam_company_dept cd  " +
             "WHERE " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code " +
@@ -51,9 +51,9 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "from " +
-            " sys_user u, " +
-            " sys_dept_user du, " +
-            " sys_company_dept cd  " +
+            " iam_user u, " +
+            " iam_dept_user du, " +
+            " iam_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +
@@ -86,10 +86,10 @@ public interface UserMapper extends BaseMapper<User> {
             " cd.company_id, " +
             " cd.company_code  " +
             "from " +
-            " sys_user u, " +
-            " sys_user_post up, " +
-            " sys_dept_user du, " +
-            " sys_company_dept cd  " +
+            " iam_user u, " +
+            " iam_user_post up, " +
+            " iam_dept_user du, " +
+            " iam_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +
@@ -117,9 +117,9 @@ public interface UserMapper extends BaseMapper<User> {
             "select " +
             " count(u.id) as total " +
             "from " +
-            " sys_user u, " +
-            " sys_dept_user du, " +
-            " sys_company_dept cd  " +
+            " iam_user u, " +
+            " iam_dept_user du, " +
+            " iam_company_dept cd  " +
             "where " +
             " u.id = du.user_id  " +
             " and u.user_code = du.user_code  " +

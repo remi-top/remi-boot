@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.RestrictIpConverter;
 import ai.remi.boot.domain.dto.post.RestrictIpPostDTO;
@@ -14,8 +14,6 @@ import ai.remi.boot.domain.entity.RestrictIp;
 import ai.remi.boot.domain.query.RestrictIpQuery;
 import ai.remi.boot.domain.vo.RestrictIpVO;
 import ai.remi.boot.server.service.RestrictIpService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -102,7 +100,7 @@ public class RestrictIpController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "录入黑白名单", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "录入黑白名单", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated RestrictIpPostDTO restrictIpDTO) {
         //处理格式转换
         RestrictIp restrictIp = RestrictIpConverter.INSTANT.postDtoToEntity(restrictIpDTO);
@@ -118,7 +116,7 @@ public class RestrictIpController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "更新黑白名单", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "更新黑白名单", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated RestrictIpPutDTO restrictIpDTO) {
         //处理格式转换
         RestrictIp restrictIp = RestrictIpConverter.INSTANT.putDtoToEntity(restrictIpDTO);
@@ -134,7 +132,7 @@ public class RestrictIpController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除黑白名单", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除黑白名单", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(restrictIpService.removeByIds(ids));
     }

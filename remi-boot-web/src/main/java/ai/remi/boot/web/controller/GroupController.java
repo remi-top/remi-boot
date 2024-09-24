@@ -1,12 +1,13 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
 import ai.remi.comm.domain.tree.TreeBuild;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
 import ai.remi.comm.util.string.StringUtils;
@@ -18,9 +19,6 @@ import ai.remi.boot.domain.query.GroupQuery;
 import ai.remi.boot.domain.tree.GroupTree;
 import ai.remi.boot.domain.vo.GroupVO;
 import ai.remi.boot.server.service.GroupService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -132,7 +130,7 @@ public class GroupController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增用户组", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增用户组", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated GroupPostDTO groupDTO) {
         //处理格式转换
         Group group = GroupConverter.INSTANT.postDtoToEntity(groupDTO);
@@ -148,7 +146,7 @@ public class GroupController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改用户组", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改用户组", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated GroupPutDTO groupDTO) {
         //处理格式转换
         Group group = GroupConverter.INSTANT.putDtoToEntity(groupDTO);
@@ -164,7 +162,7 @@ public class GroupController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除用户组", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除用户组", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(groupService.removeByIds(ids));
     }

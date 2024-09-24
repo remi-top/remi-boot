@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.tree.TreeBuild;
 import ai.remi.comm.exception.util.MessageUtils;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.asserts.AssertUtils;
 import ai.remi.comm.util.collection.CollectionUtils;
 import ai.remi.comm.util.id.SnowflakeUtils;
@@ -25,8 +25,6 @@ import ai.remi.boot.server.service.CompanyDeptService;
 import ai.remi.boot.server.service.DeptService;
 import ai.remi.boot.server.service.DeptUserService;
 import ai.remi.boot.server.service.UserService;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
@@ -122,7 +120,7 @@ public class DeptController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "添加部门数据", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "添加部门数据", businessType = BusinessType.INSERT)
     @Transactional(rollbackFor = Exception.class, transactionManager = "transactionManager")
     public ResultBean<Boolean> insert(@RequestBody @Validated DeptPostDTO deptDTO) {
         //处理格式转换
@@ -148,7 +146,7 @@ public class DeptController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "更新部门数据", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "更新部门数据", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated DeptPutDTO deptDTO) {
         //处理格式转换
         Dept dept = DeptConverter.INSTANT.putDtoToEntity(deptDTO);
@@ -164,7 +162,7 @@ public class DeptController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除部门数据", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除部门数据", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         for (String id : ids) {
             Dept dept = deptService.getOne(Wrappers.<Dept>lambdaQuery().eq(Dept::getParentId, id).last("limit 1"));

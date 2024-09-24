@@ -1,11 +1,11 @@
 package ai.remi.boot.web.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ai.remi.comm.core.result.PagerBean;
 import ai.remi.comm.core.result.ResultBean;
 import ai.remi.comm.domain.query.PageQuery;
-import ai.remi.comm.log.annotation.LogRecord;
-import ai.remi.comm.log.enums.BusinessType;
 import ai.remi.comm.util.bean.BeanCopyUtils;
 import ai.remi.boot.domain.converter.RankConverter;
 import ai.remi.boot.domain.dto.post.RankPostDTO;
@@ -14,8 +14,6 @@ import ai.remi.boot.domain.entity.Rank;
 import ai.remi.boot.domain.query.RankQuery;
 import ai.remi.boot.domain.vo.RankVO;
 import ai.remi.boot.server.service.RankService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -102,7 +100,7 @@ public class RankController {
      */
     @PostMapping("/add")
     @Operation(summary = "新增数据")
-    @LogRecord(content = "新增职级信息", businessType = BusinessType.INSERT)
+    //@LogRecord(content = "新增职级信息", businessType = BusinessType.INSERT)
     public ResultBean<Boolean> insert(@RequestBody @Validated RankPostDTO rankDTO) {
         //处理格式转换
         Rank rank = RankConverter.INSTANT.postDtoToEntity(rankDTO);
@@ -118,7 +116,7 @@ public class RankController {
      */
     @PutMapping("/update")
     @Operation(summary = "修改数据")
-    @LogRecord(content = "修改职级信息", businessType = BusinessType.UPDATE)
+    //@LogRecord(content = "修改职级信息", businessType = BusinessType.UPDATE)
     public ResultBean<Boolean> update(@RequestBody @Validated RankPutDTO rankDTO) {
         //处理格式转换
         Rank rank = RankConverter.INSTANT.putDtoToEntity(rankDTO);
@@ -134,7 +132,7 @@ public class RankController {
      */
     @DeleteMapping("/delete")
     @Operation(summary = "删除数据")
-    @LogRecord(content = "删除职级信息", businessType = BusinessType.DELETE)
+    //@LogRecord(content = "删除职级信息", businessType = BusinessType.DELETE)
     public ResultBean<Boolean> delete(@RequestParam("ids") List<String> ids) {
         return ResultBean.success(rankService.removeByIds(ids));
     }
