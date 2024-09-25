@@ -17,7 +17,7 @@
     </developers>
 
     <properties>
-        <!--startdis-->
+        <!--remi-->
         <remi-comm.version>3.1.0</remi-comm.version>
         <remi-boot.version>3.1.0</remi-boot.version>
         <!--jdk-->

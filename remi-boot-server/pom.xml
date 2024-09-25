@@ -13,7 +13,7 @@
     </parent>
 
     <dependencies>
-        <!--启迪公共模块-->
+        <!--瑞米公共模块-->
         <dependency>
             <groupId>ai.remi.top.comm</groupId>
             <artifactId>remi-comm-exception</artifactId>

@@ -44,7 +44,7 @@ public class AppPublish extends BaseEntity {
     private String appVersion;
 
     /**
-     * 适用的启迪平台版本
+     * 适用的瑞米平台版本
      */
     private String sdtVersion;
 

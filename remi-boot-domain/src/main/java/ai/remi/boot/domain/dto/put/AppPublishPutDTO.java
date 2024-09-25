@@ -54,9 +54,9 @@ public class AppPublishPutDTO implements Serializable {
     private String appVersion;
 
     /**
-     * 适用的启迪平台版本
+     * 适用的瑞米平台版本
      */
-    @Schema(description = "适用的启迪平台版本")
+    @Schema(description = "适用的瑞米平台版本")
     private String sdtVersion;
 
     /**

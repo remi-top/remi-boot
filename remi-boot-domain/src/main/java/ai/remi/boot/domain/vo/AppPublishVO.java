@@ -47,9 +47,9 @@ public class AppPublishVO implements Serializable {
     @Schema(description = "应用的版本")
     private String appVersion;
     /**
-     * 适用的启迪平台版本
+     * 适用的瑞米平台版本
      */
-    @Schema(description = "适用的启迪平台版本")
+    @Schema(description = "适用的瑞米平台版本")
     private String sdtVersion;
     /**
      * 文件名称
